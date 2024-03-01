@@ -16,7 +16,7 @@ struct SavedPostListView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                                    if savedPosts.isEmpty || savedPosts.filter { viewModel.isPostSaved(post: $0) }.isEmpty {
+                    if savedPosts.isEmpty || savedPosts.filter({ viewModel.isPostSaved(post: $0) }).isEmpty {
                                         Text("No saved posts.Please Save Posts...")
                                             .foregroundColor(.gray)
                                             

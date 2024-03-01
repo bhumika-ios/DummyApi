@@ -9,6 +9,21 @@ import SwiftUI
 
 struct PostDetailsView: View {
     let post: Post
+    var postText: String {
+         return post.text
+     }
+
+     var likesText: String {
+         return "\(post.likes) likes"
+     }
+
+     var publishedText: String {
+         return "Posted on: \(post.publishDate)"
+     }
+
+     var ownerText: String {
+         return "Owner: \(post.owner.firstName) \(post.owner.lastName)"
+     }
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         

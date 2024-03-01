@@ -6,30 +6,31 @@
 //
 
 import XCTest
+@testable import DummyApi
+import SwiftUI
 
 final class PostViewModelTests: XCTestCase {
+    var viewModel: PostViewModel!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+       override func setUp() {
+           super.setUp()
+           viewModel = PostViewModel()
+       }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+       override func tearDown() {
+           viewModel = nil
+           super.tearDown()
+       }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+       func testToggleSave() {
+           let post = Post(id: "60d21b4667d0d8992e610c85", image: "https://img.dummyapi.io/photo-1564694202779-bc908c327862.jpg", likes: 43, tags: ["animal","dog","golden retriever"], text: "adult Labrador retriever", publishDate: "2020-05-24T14:53:17.598Z", owner: Owner(id: "60d0fe4f5311236168a109ca", title: "ms", firstName: "Sara", lastName: "Andersen", picture: "https://randomuser.me/api/portraits/women/58.jpg"))
+           
+           viewModel.toggleSave(post: post)
+           XCTAssertTrue(viewModel.isPostSaved(post: post), "Post should be saved")
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+           viewModel.toggleSave(post: post)
+           XCTAssertFalse(viewModel.isPostSaved(post: post), "Post should be unsaved")
+       }
+
 
 }
