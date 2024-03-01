@@ -37,6 +37,7 @@ struct PostListItemView: View {
                     Text("Owner: \(post.owner.firstName)")
                     
                 }
+                .foregroundColor(.black)
                 Button(action: {
                                     viewModel.toggleSave(post: post)
                                     showToast = true

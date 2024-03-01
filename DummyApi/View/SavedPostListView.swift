@@ -16,17 +16,24 @@ struct SavedPostListView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    ForEach(savedPosts.filter { viewModel.isPostSaved(post: $0) }) { post in
-                        NavigationLink(destination: PostDetailsView(post: post)) {
-                            PostListItemView(post: post, viewModel: viewModel)
+                                    if savedPosts.isEmpty || savedPosts.filter { viewModel.isPostSaved(post: $0) }.isEmpty {
+                                        Text("No saved posts.Please Save Posts...")
+                                            .foregroundColor(.gray)
+                                            
+                                    } else {
+                                        ForEach(savedPosts.filter { viewModel.isPostSaved(post: $0) }) { post in
+                                            NavigationLink(destination: PostDetailsView(post: post)) {
+                                                PostListItemView(post: post, viewModel: viewModel)
+                                            }
+                                        }
+                                    }
+                                }
+                                .padding()
+                            }
                         }
                     }
                 }
-                .padding()
-            }
-        }
-    }
-}
+
 
 //#Preview {
 //    SavedPostListView()
