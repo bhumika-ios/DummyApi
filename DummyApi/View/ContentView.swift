@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = PostViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView{
+            ZStack{
+                TabView {
+                    PostListView(posts: viewModel.posts)
+                    .tabItem {
+                        Label("Feed", systemImage: "list.bullet")
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
