@@ -13,10 +13,13 @@ struct ContentView: View {
         NavigationView{
             ZStack{
                 TabView {
-                    PostListView(posts: viewModel.posts)
+                    PostListView(posts: viewModel.posts, viewModel: viewModel)
                     .tabItem {
                         Label("Feed", systemImage: "list.bullet")
                     }
+                }
+                .onAppear {
+                    viewModel.fetchPosts()
                 }
             }
         }

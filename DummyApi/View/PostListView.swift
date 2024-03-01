@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PostListView: View {
     let posts: [Post]
+    @ObservedObject var viewModel: PostViewModel
     var body: some View {
         ZStack{
             Color.gray.opacity(0.2)
@@ -17,8 +18,8 @@ struct PostListView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(posts) { post in
                         NavigationLink(destination: PostDetailsView(post: post)) {
-                            PostListItemView(post: post)
-                        }
+                            PostListItemView(post: post, viewModel: viewModel)
+                       }
                     }
                 }
                 .padding()
