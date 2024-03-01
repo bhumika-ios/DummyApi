@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct ToastView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    let message: String
 
-#Preview {
-    ToastView()
+    var body: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Text(message)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.black.opacity(0.7))
+                    .cornerRadius(10)
+            }
+        }
+        .transition(.move(edge: .bottom))
+    }
 }

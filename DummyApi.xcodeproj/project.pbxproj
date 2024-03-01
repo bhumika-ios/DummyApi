@@ -23,6 +23,8 @@
 		AC870E542B91B66600A70C8D /* SavedPostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E532B91B66600A70C8D /* SavedPostListView.swift */; };
 		AC870E562B91C06600A70C8D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E552B91C06600A70C8D /* ProgressView.swift */; };
 		AC870E592B91CD5500A70C8D /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = AC870E582B91CD5500A70C8D /* Reachability */; };
+		AC870E5B2B91CFD500A70C8D /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E5A2B91CFD500A70C8D /* ToastView.swift */; };
+		AC870E5D2B91D05000A70C8D /* ToastViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E5C2B91D05000A70C8D /* ToastViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		AC870E4F2B91B46000A70C8D /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		AC870E532B91B66600A70C8D /* SavedPostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostListView.swift; sourceTree = "<group>"; };
 		AC870E552B91C06600A70C8D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		AC870E5A2B91CFD500A70C8D /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		AC870E5C2B91D05000A70C8D /* ToastViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				AC870E4B2B91B21500A70C8D /* UrlImage.swift */,
+				AC870E5A2B91CFD500A70C8D /* ToastView.swift */,
+				AC870E5C2B91D05000A70C8D /* ToastViewModifier.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -327,10 +333,12 @@
 				AC870E4C2B91B21500A70C8D /* UrlImage.swift in Sources */,
 				AC870E432B91B02C00A70C8D /* PostModel.swift in Sources */,
 				AC870E162B91AFDD00A70C8D /* DummyApiApp.swift in Sources */,
+				AC870E5B2B91CFD500A70C8D /* ToastView.swift in Sources */,
 				AC870E542B91B66600A70C8D /* SavedPostListView.swift in Sources */,
 				AC870E562B91C06600A70C8D /* ProgressView.swift in Sources */,
 				AC870E4E2B91B29500A70C8D /* PostListView.swift in Sources */,
 				AC870E502B91B46000A70C8D /* PostDetailsView.swift in Sources */,
+				AC870E5D2B91D05000A70C8D /* ToastViewModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

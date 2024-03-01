@@ -11,6 +11,9 @@ struct PostListItemView: View {
     let post: Post
     @ObservedObject var viewModel: PostViewModel
     @State private var isSaved: Bool = false
+    @State private var showToast: Bool = false
+     @State private var toastMessage: String = ""
+
     var body: some View {
         VStack(alignment: .leading) {
             // Image
@@ -35,19 +38,22 @@ struct PostListItemView: View {
                     
                 }
                 Button(action: {
-                    viewModel.toggleSave(post: post)
-                }) {
-                    Image(systemName: viewModel.isPostSaved(post: post) ? "bookmark.fill" : "bookmark")
-                        .foregroundColor(viewModel.isPostSaved(post: post) ? .blue : .gray)
+                                    viewModel.toggleSave(post: post)
+                                    showToast = true
+                                    toastMessage = viewModel.isPostSaved(post: post) ? "saved" : "Unsaved"
+                                }) {
+                                    Image(systemName: viewModel.isPostSaved(post: post) ? "bookmark.fill" : "bookmark")
+                                        .foregroundColor(viewModel.isPostSaved(post: post) ? .blue : .gray)
+                                        .padding()
+                                }
+                                .offset(y: -50)
+                            }
+                        }
                         .padding()
-                }
-         .offset(y:-50)
-            }
-        }
-        .padding()
-        .background(Color.white)
+                        .background(Color.white)
                         .cornerRadius(10)
                         .shadow(radius: 5)
+                        .toast(isPresented: $showToast, message: toastMessage)
     }
 }
 
