@@ -25,19 +25,22 @@ struct PostListItemView: View {
                     .padding()
                 // Post details
                 VStack(alignment: .leading){
-                    HStack{
+                  
                         Text(post.text)
-                            .font(.headline)
-                    }
+                        .font(.system(size: 18))
+                        .lineLimit(2)
+                        .bold()
+                    
                     
                     Text("Likes: \(post.likes)")
                     
-                    Text("Posted on: \(post.publishDate)")
-                    
+                    Text("Posted on: \(post.formattedDate)")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Owner: \(post.owner.firstName)")
                     
                 }
                 .foregroundColor(.black)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 Button(action: {
                                     viewModel.toggleSave(post: post)
                                     showToast = true

@@ -20,10 +20,12 @@ struct Post: Codable, Identifiable {
     var formattedDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
         if let date = dateFormatter.date(from: publishDate) {
             dateFormatter.dateFormat = "E, hh:mm a"
             return dateFormatter.string(from: date)
         }
+        
         return publishDate
     }
 }
