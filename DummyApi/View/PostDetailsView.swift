@@ -10,20 +10,20 @@ import SwiftUI
 struct PostDetailsView: View {
     let post: Post
     var postText: String {
-         return post.text
-     }
-
-     var likesText: String {
-         return "\(post.likes) likes"
-     }
-
-     var publishedText: String {
-         return "Posted on: \(post.publishDate)"
-     }
-
-     var ownerText: String {
-         return "Owner: \(post.owner.firstName) \(post.owner.lastName)"
-     }
+        return post.text
+    }
+    
+    var likesText: String {
+        return "\(post.likes) likes"
+    }
+    
+    var publishedText: String {
+        return "Posted on: \(post.publishDate)"
+    }
+    
+    var ownerText: String {
+        return "Owner: \(post.owner.firstName) \(post.owner.lastName)"
+    }
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         
@@ -32,40 +32,38 @@ struct PostDetailsView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 8) {
-                    // Image
+                   
                     UrlImage(url: post.image)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 360,height: 250)
                         .clipped()
                     
-                    // Post details
                     VStack(alignment: .leading){
                         HStack{
                             Text(post.text)
-                                .font(.system(size: 24))
+                                .font(.system(size: 20))
                                 .bold()
-                                
+                            
                             Spacer()
                         }
                         HStack {
                             Text("\(post.likes) likes")
+                                .font(.system(size: 14))
                             Spacer()
-                            // Text("Comments: \(/* Implement comments count */post.)")
+                            
                         }
                         Divider()
                         Text(post.text)
-                            .font(.title3)
+                            .font(.system(size: 12))
                         Spacer()
-                        Text("Posted on: \(post.publishDate)")
+                        Text("Posted on: \(post.formattedDate)")
+                            .font(.system(size: 12))
                         
                         Text("Owner: \(post.owner.firstName) \(post.owner.lastName)")
-                        
-                         
-                        
-                        // Additional details can be added here
+                            .font(.system(size: 12))
                         
                     }
-                   // .padding(.horizontal)
+                    
                 }
                 .padding()
                 .background(Color.white)
@@ -82,16 +80,16 @@ struct PostDetailsView: View {
                         Image(systemName: "chevron.left")
                             .foregroundColor(Color.white)
                     }
-                   
+                    
                     Text("Details")
-                        .font(.system(size: 18, weight: .bold))  // Set the font and weight
-                        .foregroundColor(Color.white)  // Set the text color
-                  
-                
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(Color.white)
+                    
+                    
                 }
             }
             ToolbarItem(placement: .automatic) {
-                    Image(systemName: "magnifyingglass")
+                Image(systemName: "magnifyingglass")
                     .foregroundColor(Color.white)
             }
         }

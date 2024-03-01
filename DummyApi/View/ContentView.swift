@@ -18,7 +18,7 @@ struct ContentView: View {
                         VStack{
                             Text("No internet connection")
                                 .font(.title)
-                               
+                            
                             Image(systemName: "wifi.slash")
                                 .resizable()
                                 .frame(width: 50, height: 50)
@@ -37,12 +37,9 @@ struct ContentView: View {
                         }
                     }
                 }
-                
                 .onAppear {
-                                   viewModel.fetchPosts()
-                               }
-                               
-                               
+                    viewModel.fetchPosts()
+                }
             }
             
             .toolbar {
@@ -51,8 +48,8 @@ struct ContentView: View {
                         Image(systemName: "line.3.horizontal")
                             .foregroundColor(Color.white)
                         Text("iOS Developer")
-                            .font(.system(size: 18, weight: .bold))  // Set the font and weight
-                            .foregroundColor(Color.white)  // Set the text color
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(Color.white)
                     }
                 }
                 ToolbarItem(placement: .automatic) {

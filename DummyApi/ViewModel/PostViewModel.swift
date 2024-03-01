@@ -54,28 +54,23 @@ class PostViewModel: ObservableObject {
         request.addValue("65e052aab5b54c0a267b6017", forHTTPHeaderField: "app-id")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-                   defer {
-                       DispatchQueue.main.async {
-                           self.isLoading = false  // Set loading state to false after the request is completed
-                       }
-                   }
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+            
+            do {
+                let decodedResponse = try JSONDecoder().decode(PostResponse.self, from: data)
+                DispatchQueue.main.async {
+                    self.posts = decodedResponse.data
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
+        }.resume()
+    }
+}
 
-                   guard let data = data else {
-                       print(String(describing: error))
-                       return
-                   }
-
-                   do {
-                       let decodedResponse = try JSONDecoder().decode(PostResponse.self, from: data)
-                       DispatchQueue.main.async {
-                           self.posts = decodedResponse.data
-                       }
-                   } catch {
-                       print("Error decoding JSON: \(error)")
-                   }
-               }.resume()
-           }
-       }
 struct PostResponse: Codable {
     let data: [Post]
 }
