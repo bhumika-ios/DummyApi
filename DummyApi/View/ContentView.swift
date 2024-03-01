@@ -9,23 +9,40 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = PostViewModel()
+    
     var body: some View {
-        NavigationView{
-            ZStack{
-                TabView {
-                    PostListView(posts: viewModel.posts, viewModel: viewModel)
-                    .tabItem {
-                        Label("Feed", systemImage: "list.bullet")
-                    }
-                    SavedPostListView(savedPosts: $viewModel.posts, viewModel: viewModel)
-                
-                        .tabItem {
-                            Label("Saved", systemImage: "bookmark")
+        NavigationView {
+            ZStack {
+                VStack{
+                    if !viewModel.isInternetConnected {
+                        VStack{
+                            Text("No internet connection")
+                                .font(.title)
+                               
+                            Image(systemName: "wifi.slash")
+                                .resizable()
+                                .frame(width: 50, height: 50)
                         }
+                        .foregroundColor(.red)
+                    } else {
+                        TabView {
+                            PostListView(posts: viewModel.posts, viewModel: viewModel)
+                                .tabItem {
+                                    Label("Feed", systemImage: "list.bullet")
+                                }
+                            SavedPostListView(savedPosts: $viewModel.posts, viewModel: viewModel)
+                                .tabItem {
+                                    Label("Saved", systemImage: "bookmark")
+                                }
+                        }
+                    }
                 }
+                
                 .onAppear {
-                    viewModel.fetchPosts()
-                }
+                                   viewModel.fetchPosts()
+                               }
+                               
+                               
             }
             
             .toolbar {
@@ -36,19 +53,16 @@ struct ContentView: View {
                         Text("iOS Developer")
                             .font(.system(size: 18, weight: .bold))  // Set the font and weight
                             .foregroundColor(Color.white)  // Set the text color
-                      
-                    
                     }
                 }
                 ToolbarItem(placement: .automatic) {
-                        Image(systemName: "magnifyingglass")
+                    Image(systemName: "magnifyingglass")
                         .foregroundColor(Color.white)
                 }
             }
             .toolbarBackground(Color("blue"), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
         }
-        
     }
 }
 

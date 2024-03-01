@@ -11,16 +11,20 @@ struct SavedPostListView: View {
     @Binding var savedPosts: [Post]
        @ObservedObject var viewModel: PostViewModel
     var body: some View {
-        ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        ForEach(savedPosts.filter { viewModel.isPostSaved(post: $0) }) { post in
-                            NavigationLink(destination: PostDetailsView(post: post)) {
-                                PostListItemView(post: post, viewModel: viewModel)
-                            }
+        ZStack{
+            Color.gray.opacity(0.2)
+                .ignoresSafeArea()
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    ForEach(savedPosts.filter { viewModel.isPostSaved(post: $0) }) { post in
+                        NavigationLink(destination: PostDetailsView(post: post)) {
+                            PostListItemView(post: post, viewModel: viewModel)
                         }
                     }
-                    .padding()
                 }
+                .padding()
+            }
+        }
     }
 }
 

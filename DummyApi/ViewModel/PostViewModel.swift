@@ -6,10 +6,35 @@
 //
 
 import Foundation
+import Reachability
+
 
 class PostViewModel: ObservableObject {
     @Published var posts: [Post] = []
     @Published var savedPostIDs: Set<String> = []
+    @Published var isLoading: Bool = false
+    @Published var isInternetConnected = true
+
+       private let reachability = try! Reachability()
+
+       init() {
+           setupReachability()
+       }
+
+       private func setupReachability() {
+           reachability.whenReachable = { _ in
+               self.isInternetConnected = true
+           }
+           reachability.whenUnreachable = { _ in
+               self.isInternetConnected = false
+           }
+
+           do {
+               try reachability.startNotifier()
+           } catch {
+               print("Unable to start notifier")
+           }
+       }
     
     func toggleSave(post: Post) {
             if savedPostIDs.contains(post.id) {
@@ -29,23 +54,28 @@ class PostViewModel: ObservableObject {
         request.addValue("65e052aab5b54c0a267b6017", forHTTPHeaderField: "app-id")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                print(String(describing: error))
-                return
-            }
-            
-            do {
-                let decodedResponse = try JSONDecoder().decode(PostResponse.self, from: data)
-                DispatchQueue.main.async {
-                    self.posts = decodedResponse.data
-                }
-            } catch {
-                print("Error decoding JSON: \(error)")
-            }
-        }.resume()
-    }
-}
+                   defer {
+                       DispatchQueue.main.async {
+                           self.isLoading = false  // Set loading state to false after the request is completed
+                       }
+                   }
 
+                   guard let data = data else {
+                       print(String(describing: error))
+                       return
+                   }
+
+                   do {
+                       let decodedResponse = try JSONDecoder().decode(PostResponse.self, from: data)
+                       DispatchQueue.main.async {
+                           self.posts = decodedResponse.data
+                       }
+                   } catch {
+                       print("Error decoding JSON: \(error)")
+                   }
+               }.resume()
+           }
+       }
 struct PostResponse: Codable {
     let data: [Post]
 }

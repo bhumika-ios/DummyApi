@@ -21,6 +21,8 @@
 		AC870E4E2B91B29500A70C8D /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E4D2B91B29500A70C8D /* PostListView.swift */; };
 		AC870E502B91B46000A70C8D /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E4F2B91B46000A70C8D /* PostDetailsView.swift */; };
 		AC870E542B91B66600A70C8D /* SavedPostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E532B91B66600A70C8D /* SavedPostListView.swift */; };
+		AC870E562B91C06600A70C8D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E552B91C06600A70C8D /* ProgressView.swift */; };
+		AC870E592B91CD5500A70C8D /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = AC870E582B91CD5500A70C8D /* Reachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		AC870E4D2B91B29500A70C8D /* PostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		AC870E4F2B91B46000A70C8D /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		AC870E532B91B66600A70C8D /* SavedPostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostListView.swift; sourceTree = "<group>"; };
+		AC870E552B91C06600A70C8D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC870E592B91CD5500A70C8D /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +172,7 @@
 				AC870E4D2B91B29500A70C8D /* PostListView.swift */,
 				AC870E4F2B91B46000A70C8D /* PostDetailsView.swift */,
 				AC870E532B91B66600A70C8D /* SavedPostListView.swift */,
+				AC870E552B91C06600A70C8D /* ProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +201,9 @@
 			dependencies = (
 			);
 			name = DummyApi;
+			packageProductDependencies = (
+				AC870E582B91CD5500A70C8D /* Reachability */,
+			);
 			productName = DummyApi;
 			productReference = AC870E122B91AFDD00A70C8D /* DummyApi.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +276,9 @@
 				Base,
 			);
 			mainGroup = AC870E092B91AFDD00A70C8D;
+			packageReferences = (
+				AC870E572B91CD5500A70C8D /* XCRemoteSwiftPackageReference "Reachability" */,
+			);
 			productRefGroup = AC870E132B91AFDD00A70C8D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -317,6 +328,7 @@
 				AC870E432B91B02C00A70C8D /* PostModel.swift in Sources */,
 				AC870E162B91AFDD00A70C8D /* DummyApiApp.swift in Sources */,
 				AC870E542B91B66600A70C8D /* SavedPostListView.swift in Sources */,
+				AC870E562B91C06600A70C8D /* ProgressView.swift in Sources */,
 				AC870E4E2B91B29500A70C8D /* PostListView.swift in Sources */,
 				AC870E502B91B46000A70C8D /* PostDetailsView.swift in Sources */,
 			);
@@ -648,6 +660,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC870E572B91CD5500A70C8D /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC870E582B91CD5500A70C8D /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC870E572B91CD5500A70C8D /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC870E0A2B91AFDD00A70C8D /* Project object */;
 }
