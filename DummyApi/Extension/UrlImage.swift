@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct UrlImage: View {
+    let url: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let imageURL = URL(string: url), let imageData = try? Data(contentsOf: imageURL),
+           let uiImage = UIImage(data: imageData) {
+            Image(uiImage: uiImage)
+                .resizable()
+        } else {
+            Image(systemName: "photo")
+                .resizable()
+                
+        }
     }
-}
-
-#Preview {
-    UrlImage()
 }
