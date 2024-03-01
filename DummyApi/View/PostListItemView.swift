@@ -29,10 +29,15 @@ struct PostListItemView: View {
                     
                     Text("Posted on: \(post.publishDate)")
                     
+                    Text("Owner: \(post.owner.firstName)")
                     
                 }
             }
         }
+        .padding()
+        .background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
     }
 }
 
