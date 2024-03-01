@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PostListItemView: View {
     let post: Post
+    @ObservedObject var viewModel: PostViewModel
+    @State private var isSaved: Bool = false
     var body: some View {
         VStack(alignment: .leading) {
             // Image
@@ -32,6 +34,14 @@ struct PostListItemView: View {
                     Text("Owner: \(post.owner.firstName)")
                     
                 }
+                Button(action: {
+                    viewModel.toggleSave(post: post)
+                }) {
+                    Image(systemName: viewModel.isPostSaved(post: post) ? "bookmark.fill" : "bookmark")
+                        .foregroundColor(viewModel.isPostSaved(post: post) ? .blue : .gray)
+                        .padding()
+                }
+         .offset(y:-50)
             }
         }
         .padding()
