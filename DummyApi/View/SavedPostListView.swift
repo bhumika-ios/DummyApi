@@ -14,7 +14,9 @@ struct SavedPostListView: View {
         ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         ForEach(savedPosts.filter { viewModel.isPostSaved(post: $0) }) { post in
-                            
+                            NavigationLink(destination: PostDetailsView(post: post)) {
+                                PostListItemView(post: post, viewModel: viewModel)
+                            }
                         }
                     }
                     .padding()
