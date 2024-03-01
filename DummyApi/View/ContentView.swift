@@ -27,6 +27,25 @@ struct ContentView: View {
                     viewModel.fetchPosts()
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    HStack {
+                        Image(systemName: "line.3.horizontal")
+                            .foregroundColor(Color.white)
+                        Text("iOS Developer")
+                            .font(.system(size: 18, weight: .bold))  // Set the font and weight
+                            .foregroundColor(Color.white)  // Set the text color
+                      
+                    
+                    }
+                }
+                ToolbarItem(placement: .automatic) {
+                        Image(systemName: "magnifyingglass")
+                        .foregroundColor(Color.white)
+                }
+            }
+            .toolbarBackground(Color("blue"), for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }
