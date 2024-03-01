@@ -17,6 +17,11 @@ struct ContentView: View {
                     .tabItem {
                         Label("Feed", systemImage: "list.bullet")
                     }
+                    SavedPostListView(savedPosts: $viewModel.posts, viewModel: viewModel)
+                
+                        .tabItem {
+                            Label("Saved", systemImage: "bookmark")
+                        }
                 }
                 .onAppear {
                     viewModel.fetchPosts()
