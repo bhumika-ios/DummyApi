@@ -15,6 +15,7 @@
 		AC870E312B91AFDF00A70C8D /* DummyApiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E302B91AFDF00A70C8D /* DummyApiUITests.swift */; };
 		AC870E332B91AFDF00A70C8D /* DummyApiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E322B91AFDF00A70C8D /* DummyApiUITestsLaunchTests.swift */; };
 		AC870E432B91B02C00A70C8D /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E422B91B02C00A70C8D /* PostModel.swift */; };
+		AC870E452B91B0AA00A70C8D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E442B91B0AA00A70C8D /* PostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		AC870E302B91AFDF00A70C8D /* DummyApiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyApiUITests.swift; sourceTree = "<group>"; };
 		AC870E322B91AFDF00A70C8D /* DummyApiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyApiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AC870E422B91B02C00A70C8D /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		AC870E442B91B0AA00A70C8D /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		AC870E402B91AFF500A70C8D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AC870E442B91B0AA00A70C8D /* PostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC870E452B91B0AA00A70C8D /* PostViewModel.swift in Sources */,
 				AC870E182B91AFDD00A70C8D /* ContentView.swift in Sources */,
 				AC870E432B91B02C00A70C8D /* PostModel.swift in Sources */,
 				AC870E162B91AFDD00A70C8D /* DummyApiApp.swift in Sources */,
