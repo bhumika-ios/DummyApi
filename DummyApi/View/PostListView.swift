@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct PostListView: View {
+    let posts: [Post]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.gray.opacity(0.2)
+                .ignoresSafeArea()
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    ForEach(posts) { post in
+                        PostListItemView(post: post)
+                    }
+                }
+                .padding()
+            }
+        }
     }
 }
 
-#Preview {
-    PostListView()
-}
+
+//#Preview {
+//    PostListView()
+//}
