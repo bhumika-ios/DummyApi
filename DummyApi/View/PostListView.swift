@@ -16,7 +16,9 @@ struct PostListView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(posts) { post in
-                        PostListItemView(post: post)
+                        NavigationLink(destination: PostDetailsView(post: post)) {
+                            PostListItemView(post: post)
+                        }
                     }
                 }
                 .padding()
