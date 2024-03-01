@@ -27,6 +27,7 @@ struct ContentView: View {
                     viewModel.fetchPosts()
                 }
             }
+            
             .toolbar {
                 ToolbarItem(placement: .navigation) {
                     HStack {
@@ -47,6 +48,7 @@ struct ContentView: View {
             .toolbarBackground(Color("blue"), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
         }
+        
     }
 }
 

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct PostDetailsView: View {
     let post: Post
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
+        
         ZStack{
             Color.gray.opacity(0.2)
                 .ignoresSafeArea()
@@ -56,7 +58,31 @@ struct PostDetailsView: View {
                 .shadow(radius: 5)
             }
         }
-                          
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                HStack {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(Color.white)
+                    }
+                   
+                    Text("Details")
+                        .font(.system(size: 18, weight: .bold))  // Set the font and weight
+                        .foregroundColor(Color.white)  // Set the text color
+                  
+                
+                }
+            }
+            ToolbarItem(placement: .automatic) {
+                    Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color.white)
+            }
+        }
+        .toolbarBackground(Color("blue"), for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationBarBackButtonHidden()
     }
 }
 
