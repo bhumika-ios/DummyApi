@@ -20,6 +20,7 @@
 		AC870E4C2B91B21500A70C8D /* UrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E4B2B91B21500A70C8D /* UrlImage.swift */; };
 		AC870E4E2B91B29500A70C8D /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E4D2B91B29500A70C8D /* PostListView.swift */; };
 		AC870E502B91B46000A70C8D /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E4F2B91B46000A70C8D /* PostDetailsView.swift */; };
+		AC870E542B91B66600A70C8D /* SavedPostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC870E532B91B66600A70C8D /* SavedPostListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AC870E4B2B91B21500A70C8D /* UrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImage.swift; sourceTree = "<group>"; };
 		AC870E4D2B91B29500A70C8D /* PostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		AC870E4F2B91B46000A70C8D /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
+		AC870E532B91B66600A70C8D /* SavedPostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				AC870E482B91B1A600A70C8D /* PostListItemView.swift */,
 				AC870E4D2B91B29500A70C8D /* PostListView.swift */,
 				AC870E4F2B91B46000A70C8D /* PostDetailsView.swift */,
+				AC870E532B91B66600A70C8D /* SavedPostListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				AC870E4C2B91B21500A70C8D /* UrlImage.swift in Sources */,
 				AC870E432B91B02C00A70C8D /* PostModel.swift in Sources */,
 				AC870E162B91AFDD00A70C8D /* DummyApiApp.swift in Sources */,
+				AC870E542B91B66600A70C8D /* SavedPostListView.swift in Sources */,
 				AC870E4E2B91B29500A70C8D /* PostListView.swift in Sources */,
 				AC870E502B91B46000A70C8D /* PostDetailsView.swift in Sources */,
 			);
